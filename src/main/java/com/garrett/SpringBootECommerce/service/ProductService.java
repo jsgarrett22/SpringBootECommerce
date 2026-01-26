@@ -17,6 +17,15 @@ public class ProductService {
 			new Product(3, "Sprite", 1.50)
 			);
 	
+	public Product getProductById(int id) {
+		// filters through products
+		// grabs the first product that matches the given id or it will return null
+		return products.stream()
+				.filter(p -> p.getProductID() == id)
+				.findFirst()
+				.orElse(null);
+	}
+	
 	public List<Product> getProducts() {
 		return products;
 	}
