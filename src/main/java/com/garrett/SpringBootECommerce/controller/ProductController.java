@@ -11,7 +11,11 @@ import com.garrett.SpringBootECommerce.service.ProductService;
 @RestController
 public class ProductController {
 	
-	ProductService service = new ProductService();
+	private final ProductService service;
+	
+	public ProductController(ProductService service) {
+		this.service = service;
+	}
 
 	@RequestMapping("/products")
 	public List<Product> getProducts() {
