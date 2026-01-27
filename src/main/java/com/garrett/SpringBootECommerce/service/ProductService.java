@@ -1,21 +1,23 @@
 package com.garrett.SpringBootECommerce.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.garrett.SpringBootECommerce.model.Product;
 
 @Service
 public class ProductService {
 	
-	private List<Product> products = Arrays.asList(
+	private List<Product> products = new ArrayList<>(Arrays.asList(
 			new Product(0, "Pepsi", 1.99),
 			new Product(1, "Mountain Dew", 2.50),
 			new Product(2, "Coca Cola", 2.25),
 			new Product(3, "Sprite", 1.50)
-			);
+			));
 	
 	public Product getProductById(int id) {
 		// filters through products
@@ -28,5 +30,9 @@ public class ProductService {
 	
 	public List<Product> getProducts() {
 		return products;
+	}
+	
+	public void addProduct(Product product) {
+		products.add(product);
 	}
 }
