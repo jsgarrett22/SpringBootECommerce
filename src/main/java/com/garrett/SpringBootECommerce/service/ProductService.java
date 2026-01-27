@@ -35,4 +35,27 @@ public class ProductService {
 	public void addProduct(Product product) {
 		products.add(product);
 	}
+
+	public void updateProduct(Product product) {
+		boolean match = false;
+		Product found = null;
+		// locate if product exists
+		// if it exists, update it
+		// else, throw error message
+		for (Product p : products) {
+			if (p.getProductID() == product.getProductID()) {
+				System.out.println("Product found. Old Product: " + p);
+				p.setProductName(product.getProductName());
+				p.setPrice(product.getPrice());
+				match = true;
+				found = p;
+				break;
+			}
+		}
+		if (match == true) {
+			System.out.println("Updated product: New Product: " + found);
+		} else {
+			System.out.println("Product not found.");
+		}
+	}
 }

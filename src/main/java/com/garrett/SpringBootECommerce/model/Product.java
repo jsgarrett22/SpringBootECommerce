@@ -1,5 +1,7 @@
 package com.garrett.SpringBootECommerce.model;
 
+import java.util.Objects;
+
 public class Product {
 	
 	private int productID;
@@ -35,6 +37,11 @@ public class Product {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [productID=" + productID + ", productName=" + productName + ", price=" + price + "]";
 	}
 
 }
