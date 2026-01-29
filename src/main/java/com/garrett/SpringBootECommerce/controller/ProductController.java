@@ -2,6 +2,7 @@ package com.garrett.SpringBootECommerce.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,5 +43,10 @@ public class ProductController {
 	@PutMapping("/products")
 	public void updateProduct(@RequestBody Product product) {
 		service.updateProduct(product);
+	}
+	
+	@DeleteMapping("/products/{id}")
+	public void deleteProduct(@PathVariable int id) {
+		service.deleteProduct(id);
 	}
 }

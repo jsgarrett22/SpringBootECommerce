@@ -58,4 +58,20 @@ public class ProductService {
 			System.out.println("Product not found.");
 		}
 	}
+
+	public void deleteProduct(int id) {
+		int index = -1;
+		for (int i = 0; i < products.size(); i++) {
+			if (products.get(i).getProductID() == id) {
+				index = i;
+				break;
+			}
+		}
+		if (index != -1) {
+			products.remove(index);
+			System.out.println("Product deleted with id: " + id);
+		} else {
+			System.out.println("Unable to delete product. Product not found.");
+		}
+	}
 }

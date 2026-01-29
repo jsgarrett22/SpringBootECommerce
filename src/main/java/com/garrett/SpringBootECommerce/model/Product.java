@@ -1,7 +1,5 @@
 package com.garrett.SpringBootECommerce.model;
 
-import java.util.Objects;
-
 public class Product {
 	
 	private int productID;
