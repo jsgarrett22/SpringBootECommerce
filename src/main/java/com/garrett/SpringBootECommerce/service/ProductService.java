@@ -60,18 +60,28 @@ public class ProductService {
 	}
 
 	public void deleteProduct(int id) {
-		int index = -1;
-		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getProductID() == id) {
-				index = i;
-				break;
-			}
-		}
-		if (index != -1) {
-			products.remove(index);
+		
+		// find product
+		Product match = findProduct(products, id);
+		
+		// if index is not -1, it exists
+		if (match != null) {
+			products.remove(match);
 			System.out.println("Product deleted with id: " + id);
 		} else {
 			System.out.println("Unable to delete product. Product not found.");
 		}
+	}
+	
+	private Product findProduct(List<Product> products, int id) {
+		Product product = null;
+		for (int i = 0; i < products.size(); i++) {
+			Product current = products.get(i);
+			if (current.getProductID() == id) {
+				product = current;
+				break;
+			}
+		}
+		return product;
 	}
 }
